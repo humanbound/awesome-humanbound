@@ -1,0 +1,59 @@
+name: Add an agent example
+description: Propose a repository for the Agent Examples section
+labels: ["example"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Examples are held to the [Example Contract](../blob/main/CONTRIBUTING.md#the-example-contract).
+        The part people miss is the recorded run: an example nobody has executed
+        is worse than no example.
+
+  - type: input
+    id: repo
+    attributes:
+      label: Repository URL
+      placeholder: https://github.com/owner/repo
+    validations:
+      required: true
+
+  - type: input
+    id: framework
+    attributes:
+      label: Framework
+      description: LangChain, LangGraph, CrewAI, OpenAI Agents SDK, plain FastAPI, something else.
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What does it demonstrate?
+      description: Which weakness does it expose, and why is it interesting to attack?
+    validations:
+      required: true
+
+  - type: input
+    id: run
+    attributes:
+      label: Recorded run
+      description: Posture score, grade, orchestrator, target model, date.
+      placeholder: "F 27.38/100, 61 of 97 turns failed, owasp_agentic, gpt-4o-mini, 2026-09-10"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contract
+    attributes:
+      label: Contract
+      options:
+        - label: Public repository with an OSI license
+          required: true
+        - label: Ships bot-config.json with a headers key and $PROMPT
+          required: true
+        - label: Ships scope.yaml with business_scope, permitted and restricted
+          required: true
+        - label: No real secrets anywhere in the repository
+          required: true
+        - label: README carries the exact hb test command and the recorded run
+          required: true

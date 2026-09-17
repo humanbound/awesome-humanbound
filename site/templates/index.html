@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ site_url }}">
+<meta property="og:image" content="{{ site_url }}/static/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{{ site_url }}">
+<link rel="icon" href="{{ base }}/static/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ base }}/static/hb.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="lockup" src="{{ base }}/static/logo.png" alt="Humanbound" width="1010" height="146">
+    <p class="eyebrow"><span class="dot"></span>Community list</p>
+    <h1>{{ title }}</h1>
+    <p class="tagline">{{ tagline|safe }}</p>
+    <div class="terminal" aria-hidden="true">
+      <div class="terminal-bar"><span></span><span></span><span></span><em>hb</em></div>
+      <pre><code><span class="p">$</span> pip install "humanbound[engine,firewall]"
+<span class="p">$</span> hb test --endpoint bot-config.json --scope scope.yaml --quick --wait
+
+  Posture <span class="grade">F 27.38</span>/100   61 of 97 turns failed
+  restriction_bypass <span class="crit">critical</span>   human_manipulation <span class="warn">high</span></code></pre>
+    </div>
+    <p class="actions">
+      <a class="btn" href="https://github.com/humanbound/awesome-humanbound">View on GitHub</a>
+      <a class="btn ghost" href="#agent-examples">Jump to examples</a>
+    </p>
+  </div>
+</header>
+
+<div class="wrap layout">
+
+  <nav class="toc" aria-label="Contents">
+    <p class="toc-title">Contents</p>
+    <ol>
+      {% for section in sections %}
+      <li><a href="#{{ section.anchor }}">{{ section.title }}</a>{% if section.count %}<span class="n">{{ section.count }}</span>{% endif %}</li>
+      {% endfor %}
+    </ol>
+    <p class="toc-foot">{{ total }} entries</p>
+  </nav>
+
+  <main>
+    {% for para in lede %}<p class="lede">{{ para|safe }}</p>{% endfor %}
+
+    {% for section in sections %}
+    <section id="{{ section.anchor }}">
+      <h2><a href="#{{ section.anchor }}">{{ section.title }}</a></h2>
+      {% for group in section.groups %}
+        {% if group.title %}<h3>{{ group.title }}</h3>{% endif %}
+        {% if group.intro %}<div class="intro">{{ group.intro|safe }}</div>{% endif %}
+        {% if group.entries %}
+        <ul class="entries">
+          {% for entry in group.entries %}
+          <li>
+            <a class="entry-name" href="{{ entry.url }}">{{ entry.name }}</a>
+            <span class="entry-desc">{{ entry.description|safe }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      {% endfor %}
+    </section>
+    {% endfor %}
+  </main>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>Generated from <a href="https://github.com/humanbound/awesome-humanbound/blob/main/README.md">README.md</a>. Released under <a href="https://github.com/humanbound/awesome-humanbound/blob/main/LICENSE">CC0 1.0</a>.</p>
+    <p class="muted">Humanbound is at <a href="https://www.humanbound.ai">humanbound.ai</a> and <a href="https://docs.humanbound.ai">docs.humanbound.ai</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

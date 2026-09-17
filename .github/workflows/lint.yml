@@ -1,0 +1,40 @@
+name: Lint
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+      - name: Parser tests
+        run: uv run --with pytest --with markdown-it-py --with jinja2 pytest site/tests -q
+      - name: Site builds
+        run: uv run site/build.py
+
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --max-retries 2 README.md CONTRIBUTING.md
+          fail: true
+
+  awesome-lint:
+    runs-on: ubuntu-latest
+    # Informational only. The reference implementation this list is modelled on
+    # does not pass stock awesome-lint either, and a check we routinely override
+    # would teach contributors to ignore the two checks above that do matter.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - run: npx awesome-lint

@@ -8,6 +8,10 @@
   <a href="https://awesome.re"><img src="https://awesome.re/badge.svg" alt="Awesome"></a>
 </p>
 
+<p align="center">
+  <a href="https://awesome.humanbound.ai/">awesome.humanbound.ai</a>
+</p>
+
 > Agents, examples, and reading for [Humanbound](https://www.humanbound.ai), the open-source adversarial testing engine for AI agents.
 
 Humanbound throws model-generated attacks at an agent over HTTP, then grades the transcripts against the OWASP Top 10 for LLM and Agentic Applications.

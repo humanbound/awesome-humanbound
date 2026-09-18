@@ -98,10 +98,18 @@ Nobody has written one for LangGraph, CrewAI, the OpenAI Agents SDK, an MCP-back
 - [Beyond moderation: why LLM systems need a policy layer](https://www.humanbound.ai/blog/beyond-moderation-llm-policy-layer) - Spyros Briakos, 2026-04-07. Where content moderation stops being enough for an agent that can act on its own.
 - [The agent attack scenario library](https://www.humanbound.ai/blog/ai-agent-attack-scenario-library) - Sofia Aliferi, 2026-08-20. The case for a shared, OWASP-mapped corpus of agent attacks.
 
+### Integrations
+
+- [Importing Promptfoo results into the firewall](https://www.humanbound.ai/blog/beyond-ai-security-rise-of-ai-secops-promptfoo-humanbound) - Sofia Aliferi, 2026-09-03. Feed a Promptfoo red-team export into `hb firewall train --import` and it trains the same Tier 2 classifier as Humanbound's own test logs.
+- [Importing PyRIT results into the firewall](https://www.humanbound.ai/blog/beyond-ai-security-rise-of-ai-secops-pyrit-humanbound) - Sofia Aliferi, 2026-09-03. Same `--import` flag, auto-detected by the `redteaming_data` key, so a PyRIT engagement's findings train the firewall instead of ending up as a static report.
+- [Streaming findings to Splunk](https://www.humanbound.ai/blog/beyond-ai-security-rise-of-ai-secops-splunk-humanbound) - Sofia Aliferi, 2026-09-03. HMAC-signed webhook events, `finding.created`, `posture.grade_changed`, `drift.detected`, and eleven others, land in a Splunk HEC endpoint with no custom parsing.
+- [Gating CI on agent security](https://www.humanbound.ai/blog/add-ai-security-check-to-github-actions-workflow) - Sofia Aliferi, 2026-09-17. Walks through the `humanbound/actions` Marketplace Action failing a build on `fail-on: high` and writing SARIF for the Security tab (pair with a `github/codeql-action/upload-sarif` step to actually upload it).
+
 ### Elsewhere
 
 Humanbound also posts on [dev.to](https://dev.to/humanbound_ai), and a lot of it never reaches the blog. Worth reading on their own:
 
+- [Building a Public Backlog of AI Agent Failures: what's the worst thing your tests didn't catch?](https://dev.to/humanbound_ai/building-a-public-backlog-of-ai-agent-failures-whats-the-worst-thing-your-tests-didnt-catch-1l14) - Sofia Aliferi, 2026-07-29.
 - [The Taiwan attack: when an AI agent swarm ran a government hack with no one watching](https://dev.to/humanbound_ai/the-taiwan-attack-when-an-ai-agent-swarm-ran-a-government-hack-with-no-one-watching-5e3m) - Sofia Aliferi, 2026-08-19.
 - [A new paper argues that your prompt injection defence can't win](https://dev.to/humanbound_ai/a-new-paper-argues-that-your-prompt-injection-defence-cant-win-26oc) - Sofia Aliferi, 2026-07-24.
 - [We put adversarial agent testing directly in Claude Code and Cursor](https://dev.to/humanbound_ai/we-put-adversarial-agent-testing-directly-in-claude-code-and-cursor-1903) - Sofia Aliferi, 2026-07-23. The announcement behind the `plugins` repo.
@@ -115,6 +123,7 @@ Humanbound also posts on [dev.to](https://dev.to/humanbound_ai), and a lot of it
 
 ## Community
 
+- [LinkedIn newsletter](https://lnkd.in/drtcCPEz) - Industry news, upcoming webinars, and tutorials.
 - [Discord](https://discord.gg/QFTD6tr9zu) - The project's community server.
 - [GitHub Discussions](https://github.com/humanbound/humanbound/discussions) - Questions and proposals against the engine.
 - [Contributing to Humanbound](https://github.com/humanbound/humanbound/blob/main/CONTRIBUTING.md) - Upstream takes DCO sign-off (`git commit -s`) rather than a CLA.
